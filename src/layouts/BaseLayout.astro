@@ -4,6 +4,7 @@ import { ClientRouter } from 'astro:transitions'
 import ThemeManager from '@/components/ui/ThemeManager.astro'
 import FaviconThemeSwitcher from '@/components/ui/FaviconThemeSwitcher.astro'
 import TransitionWrapper from '@/components/layout/TransitionWrapper.astro'
+import { inject } from '@vercel/analytics'
 import type { LayoutProps } from '@/types'
 
 type Props = LayoutProps
@@ -15,6 +16,8 @@ const fadeAnimation = themeConfig.general.fadeAnimation
 const widthValue = Math.min(parseFloat(contentWidth), 50)
 const shouldUseCustomWidth = widthValue > 25
 const finalWidth = shouldUseCustomWidth ? `${widthValue}rem` : '25rem'
+
+const analyticsScript = inject()
 ---
 
 <html lang={language}>
@@ -43,6 +46,7 @@ const finalWidth = shouldUseCustomWidth ? `${widthValue}rem` : '25rem'
         </div>
       )
     }
+    <script set:html={analyticsScript} />
   </body>
 </html>
 
