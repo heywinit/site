@@ -1,64 +1,64 @@
-![Astro Nano](_astro_nano.png)
+# Chiri 🌸
 
-Astro Nano is a static, minimalist, lightweight, lightning fast portfolio and blog theme.
+![screenshot-light](public/screenshots/screenshot-light.png)
+![screenshot-dark](public/screenshots/screenshot-dark.png)
 
-Built with Astro, Tailwind and Typescript, an no frameworks.
+Chiri is a minimal blog theme built with [Astro](https://astro.build), offering customization options while preserving its clean aesthetic.
 
-It was designed as an even more minimal theme than my popular theme [Astro Sphere](https://github.com/markhorn-dev/astro-sphere)
+Check the [demo](https://astro-chiri.netlify.app/) for more details.
 
-## 🚀 Deploy your own
+## Features
 
-[![Deploy with Vercel](_deploy_vercel.svg)](https://vercel.com/new/clone?repository-url=https://github.com/markhorn-dev/astro-nano)  [![Deploy with Netlify](_deploy_netlify.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/markhorn-dev/astro-nano)
+- [x] Build with Astro
+- [x] Responsive
+- [x] Light / Dark mode
+- [x] MDX
+- [x] KaTeX
+- [x] Sitemap
+- [x] OpenGraph
+- [x] RSS
+- [ ] Pagination
 
-## 📋 Features
+## Getting Started
 
-- ✅ 100/100 Lighthouse performance
-- ✅ Responsive
-- ✅ Accessible
-- ✅ SEO-friendly
-- ✅ Typesafe
-- ✅ Minimal style
-- ✅ Light/Dark Theme
-- ✅ Animated UI
-- ✅ Tailwind styling
-- ✅ Auto generated sitemap
-- ✅ Auto generated RSS Feed
-- ✅ Markdown support
-- ✅ MDX Support (components in your markdown)
+1. [Fork](https://github.com/the3ash/astro-chiri/fork) this repository, or use this template to [create a new repository](https://github.com/new?template_name=astro-chiri&template_owner=the3ash).
 
-## 💯 Lighthouse score
-![Astro Nano Lighthouse Score](_lighthouse.png)
+2. Run the following commands:
 
-## 🕊️ Lightweight
-No frameworks or added bulk
+   ```bash
+   git clone <your-repo-url>
 
-## ⚡︎ Fast
-Rendered in ~40ms on localhost
+   cd <your-repo-name>
 
-## 📄 Configuration
+   pnpm install
 
-The blog posts on the demo serve as the documentation and configuration.
+   pnpm dev
+   ```
 
-## 💻 Commands
+3. Edit `src/config.ts` and `src/content/about/about.md` to your liking.
 
-All commands are run from the root of the project, from a terminal:
+4. Use `pnpm new <title>` to create new posts, or add your posts to `src/content/posts`.
 
-Replace npm with your package manager of choice. `npm`, `pnpm`, `yarn`, `bun`, etc
+5. You need to set adapter as follows before deploying to Netlify, Vercel, or other platforms, but you can set `linkCard` to `false` in `src/config.ts` to skip this step:
+   - **Netlify**: `pnpm add @astrojs/netlify` and add `adapter: netlify()` in `astro.config.ts`.
+   - **Vercel**: `pnpm add @astrojs/vercel` and add `adapter: vercel()` in `astro.config.ts`.
+   - **Static (e.g. GitHub Pages)**: `pnpm add @astrojs/static` and add `adapter: static()` in `astro.config.ts`.
+   - Refer to [Astro Deployment Guides](https://docs.astro.build/en/guides/deploy/) for more details.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run dev:network`     | Starts local dev server on local network         |
-| `npm run sync`            | Generates TypeScript types for all Astro modules.|
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run preview:network` | Preview build on local network                   |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-| `npm run lint`            | Run ESLint                                       |
-| `npm run lint:fix`        | Auto-fix ESLint issues                           |
+&emsp;[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start) [![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/new)
 
-## 🏛️ License
+## Commands
+
+- `pnpm new <title>` - Create a new post (use `_title` for drafts)
+- `pnpm update-theme` - Update the theme to the latest version
+
+## References
+
+- https://paco.me/
+- https://benji.org/
+- https://shud.in/
+- https://retypeset.radishzz.cc/
+
+## License
 
 MIT
