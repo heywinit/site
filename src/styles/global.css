@@ -112,6 +112,37 @@ html {
   scrollbar-gutter: stable;
   overscroll-behavior-y: contain;
   -webkit-overflow-scrolling: touch;
+
+  /* Firefox scrollbar */
+  scrollbar-color: var(--text-tertiary) transparent;
+}
+
+/* Webkit scrollbar styles (Chrome, Safari, Edge) */
+html::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--text-tertiary);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: background 0.2s ease;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+  background-clip: padding-box;
+}
+
+html::-webkit-scrollbar-thumb:active {
+  background: var(--primary);
+  background-clip: padding-box;
 }
 
 body {
