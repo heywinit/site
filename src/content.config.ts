@@ -21,4 +21,33 @@ const about = defineCollection({
   schema: z.object({})
 })
 
-export const collections = { posts, about }
+const projects = defineCollection({
+  // Load Markdown files in the `src/content/projects/` directory.
+  loader: glob({ base: './src/content/projects', pattern: '**/*.md' }),
+  // Type-check frontmatter using a schema
+  schema: () =>
+    z.object({
+      title: z.string(),
+      description: z.string().optional(),
+      url: z.string().url().optional(),
+      github: z.string().url().optional(),
+      tags: z.array(z.string()).optional(),
+      featured: z.boolean().default(false),
+      order: z.number().optional()
+    })
+})
+
+const work = defineCollection({
+  // Load Markdown files in the `src/content/work/` directory.
+  loader: glob({ base: './src/content/work', pattern: '**/*.md' }),
+  // Type-check frontmatter using a schema
+  schema: () =>
+    z.object({
+      title: z.string(),
+      description: z.string().optional(),
+      url: z.string().url().optional(),
+      tags: z.array(z.string()).optional()
+    })
+})
+
+export const collections = { posts, about, projects, work }

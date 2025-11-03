@@ -2,15 +2,99 @@
 import IndexLayout from '@/layouts/IndexLayout.astro'
 import About from '@/components/widgets/About.astro'
 import PostList from '@/components/widgets/PostList.astro'
+import ProjectList from '@/components/widgets/ProjectList.astro'
+import WorkList from '@/components/widgets/WorkList.astro'
 import { themeConfig } from '@/config'
 import { getSortedFilteredPosts } from '@/utils/draft'
+import { getFilteredProjects, getFeaturedProjects } from '@/utils/projects'
+import { getFilteredWork } from '@/utils/work'
 
 const posts = await getSortedFilteredPosts()
+const allProjects = await getFilteredProjects()
+const featuredProjects = await getFeaturedProjects()
+const work = await getFilteredWork()
 ---
 
 <IndexLayout title={themeConfig.site.title} description={themeConfig.site.description}>
   <About />
   <main>
-    <PostList posts={posts} />
+    <div class="grid">
+      <section class="section">
+        <h2>Work</h2>
+        {work.length > 0 ? <WorkList work={work} /> : <p class="empty">Nothing here yet.</p>}
+      </section>
+      <section class="section">
+        <h2>Projects</h2>
+        {
+          featuredProjects.length > 0 ? (
+            <>
+              <ProjectList projects={featuredProjects} />
+              <a href="/projects" class="show-all">
+                Show all projects →
+              </a>
+            </>
+          ) : (
+            <p class="empty">Nothing here yet.</p>
+          )
+        }
+      </section>
+    </div>
+    <section class="section">
+      <h2>Writing</h2>
+      <PostList posts={posts} />
+    </section>
   </main>
 </IndexLayout>
+
+<style>
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    align-items: start;
+  }
+
+  @media (max-width: 768px) {
+    .grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+
+  .section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .section h2 {
+    font-size: var(--font-size-m);
+    font-weight: var(--font-weight-bold);
+    margin: 0 0 1.5rem 0;
+    color: var(--text-secondary);
+  }
+
+  .empty {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  .show-all {
+    color: var(--text-secondary);
+    font-size: var(--font-size-s);
+    text-decoration: none;
+    margin-top: 1rem;
+    display: inline-block;
+    transition: color 0.2s ease-out;
+  }
+
+  .show-all:hover {
+    color: var(--text-primary);
+  }
+</style>

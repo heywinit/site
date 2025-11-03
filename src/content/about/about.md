@@ -2,15 +2,17 @@
 title: 'About'
 ---
 
-<!--
-This content will be displayed at the top of the index page.
-You can leave this empty if you don’t want to show any content.
--->
+Mornin. I'm a full-stack engineer and sophomore uni student. I design, build, and ship scalable infrastructure for the modern web. My core stack is TypeScript, Go, and React.
 
-A static blog theme based on [Astro](https://astro.build), designed for clarity and focus.
+I started working professionally at 16, building Minecraft mods for fun. At 17, I landed my first React dev job and got hooked. Most of my early serious work was in web3. Since then I've diluted back into web2 quite a lot.
 
-With a deliberately minimal design, this layout ensures your content takes center stage. It's built for flexibility, offering customization options that honor its clean and elegant aesthetic.
+Currently, I'm a developer at [soldecoder.app](https://soldecoder.app), working on fintech solutions including Meteora liquidity management automation that's generated hundreds of thousands of dollars in profit for our users, and trading automation tools for perpetual DEXes with similar impact. I also co-founded [ganthiyalabs.xyz](https://ganthiyalabs.xyz) with my friends Deep and Vaidehi from uni, where we build dev tools and consumer apps.
 
-Effortlessly share your thoughts in _a calm & dustless space._
+I was into fintech for a while, but now I'm looking towards working on critical cloud infrastructure.
 
-Check posts for details and view source on [GitHub](https://github.com/the3ash/astro-chiri).
+Outside of tech, I'm passionate about:
+
+- **Weapons & Aviation**
+- **Linguistics** — ~~Russian~~, ~~Mongolian~~, ~~French~~, Arabic, Farsi, Italian, Kyrgyz, and a bit of Mandarin
+- **Biking & Machines**
+- **Music** -- learning to play the flute.

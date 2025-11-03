@@ -1,0 +1,33 @@
+---
+import IndexLayout from '@/layouts/IndexLayout.astro'
+import ProjectList from '@/components/widgets/ProjectList.astro'
+import { themeConfig } from '@/config'
+import { getFilteredProjects } from '@/utils/projects'
+import BackButton from '@/components/ui/BackButton.astro'
+
+const projects = await getFilteredProjects()
+---
+
+<IndexLayout
+  title={`Projects · ${themeConfig.site.title}`}
+  description={themeConfig.site.description}
+>
+  <BackButton />
+  <main>
+    <h1>Projects</h1>
+    <ProjectList projects={projects} />
+  </main>
+</IndexLayout>
+
+<style>
+  main {
+    margin-top: 2rem;
+  }
+
+  h1 {
+    font-size: var(--font-size-m);
+    font-weight: var(--font-weight-bold);
+    margin: 0 0 2rem 0;
+    color: var(--text-primary);
+  }
+</style>

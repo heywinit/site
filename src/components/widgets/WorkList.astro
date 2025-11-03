@@ -1,0 +1,80 @@
+---
+import type { WorkListProps } from '@/types'
+import type { CollectionEntry } from 'astro:content'
+
+const { work } = Astro.props as WorkListProps
+type WorkItem = CollectionEntry<'work'>
+---
+
+<ul>
+  {
+    work.map((item: WorkItem) => (
+      <li>
+        {item.data.url ? (
+          <a href={item.data.url} target="_blank" rel="noopener noreferrer">
+            <div class="work-item">
+              <p class="title">{item.data.title}</p>
+              {item.data.description && <p class="description">{item.data.description}</p>}
+            </div>
+          </a>
+        ) : (
+          <div class="work-item">
+            <p class="title">{item.data.title}</p>
+            {item.data.description && <p class="description">{item.data.description}</p>}
+          </div>
+        )}
+      </li>
+    ))
+  }
+</ul>
+<div class="placeholder"></div>
+
+<style>
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  a {
+    color: var(--text-primary);
+    display: block;
+    text-decoration: none;
+    transition: opacity 0.15s ease-out;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    ul:hover a {
+      opacity: 0.4;
+    }
+
+    ul:hover a:hover {
+      opacity: 1;
+    }
+  }
+
+  .work-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .title {
+    margin: 0;
+    font-weight: 500;
+  }
+
+  .description {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .placeholder {
+    height: 2rem;
+  }
+</style>
