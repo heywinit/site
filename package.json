@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "astro dev",
-    "prebuild": "bun exec scripts/toggle-proxy.ts",
+    "prebuild": "tsx scripts/toggle-proxy.ts",
     "build": "bun run prebuild && astro build",
     "preview": "astro preview",
     "astro": "astro",
