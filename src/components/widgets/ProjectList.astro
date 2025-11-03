@@ -2,7 +2,7 @@
 import type { ProjectListProps } from '@/types'
 import type { CollectionEntry } from 'astro:content'
 
-const { projects } = Astro.props as ProjectListProps
+const { projects, showMetadata = false } = Astro.props as ProjectListProps
 type Project = CollectionEntry<'projects'>
 ---
 
@@ -10,19 +10,85 @@ type Project = CollectionEntry<'projects'>
   {
     projects.map((project: Project) => (
       <li>
-        {project.data.url ? (
-          <a href={project.data.url} target="_blank" rel="noopener noreferrer">
-            <div class="project-item">
-              <p class="title">{project.data.title}</p>
-              {project.data.description && <p class="description">{project.data.description}</p>}
-            </div>
-          </a>
-        ) : (
-          <div class="project-item">
+        <div class="project-item">
+          <div class="title-row">
             <p class="title">{project.data.title}</p>
-            {project.data.description && <p class="description">{project.data.description}</p>}
+            <div class="links">
+              {project.data.url && (
+                <a
+                  href={project.data.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="link-icon"
+                  aria-label="Project URL"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    height="24"
+                    color="#ffffff"
+                    fill="none"
+                  >
+                    <path
+                      d="M11.1004 3.00208C7.4515 3.00864 5.54073 3.09822 4.31962 4.31931C3.00183 5.63706 3.00183 7.75796 3.00183 11.9997C3.00183 16.2415 3.00183 18.3624 4.31962 19.6801C5.6374 20.9979 7.75836 20.9979 12.0003 20.9979C16.2421 20.9979 18.3631 20.9979 19.6809 19.6801C20.902 18.4591 20.9916 16.5484 20.9982 12.8996"
+                      stroke="#ffffff"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M20.4803 3.51751L14.931 9.0515M20.4803 3.51751C19.9863 3.023 16.6587 3.0691 15.9552 3.0791M20.4803 3.51751C20.9742 4.01202 20.9282 7.34329 20.9182 8.04754"
+                      stroke="#ffffff"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+              )}
+              {project.data.github && project.data.github !== project.data.url && (
+                <a
+                  href={project.data.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="link-icon"
+                  aria-label="GitHub repository"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                  >
+                    <path d="M12 1C5.9225 1 1 5.9225 1 12C1 16.8675 4.14875 20.9787 8.52125 22.4362C9.07125 22.5325 9.2775 22.2025 9.2775 21.9137C9.2775 21.6525 9.26375 20.7862 9.26375 19.865C6.5 20.3737 5.785 19.1912 5.565 18.5725C5.44125 18.2562 4.905 17.28 4.4375 17.0187C4.0525 16.8125 3.5025 16.3037 4.42375 16.29C5.29 16.2762 5.90875 17.0875 6.115 17.4175C7.105 19.0812 8.68625 18.6137 9.31875 18.325C9.415 17.61 9.70375 17.1287 10.02 16.8537C7.5725 16.5787 5.015 15.63 5.015 11.4225C5.015 10.2262 5.44125 9.23625 6.1425 8.46625C6.0325 8.19125 5.6475 7.06375 6.2525 5.55125C6.2525 5.55125 7.17375 5.2625 9.2775 6.67875C10.1575 6.43125 11.0925 6.3075 12.0275 6.3075C12.9625 6.3075 13.8975 6.43125 14.7775 6.67875C16.8813 5.24875 17.8025 5.55125 17.8025 5.55125C18.4075 7.06375 18.0225 8.19125 17.9125 8.46625C18.6138 9.23625 19.04 10.2125 19.04 11.4225C19.04 15.6437 16.4688 16.5787 14.0213 16.8537C14.42 17.1975 14.7638 17.8575 14.7638 18.8887C14.7638 20.36 14.75 21.5425 14.75 21.9137C14.75 22.2025 14.9563 22.5462 15.5063 22.4362C19.8513 20.9787 23 16.8537 23 12C23 5.9225 18.0775 1 12 1Z" />
+                  </svg>
+                </a>
+              )}
+            </div>
           </div>
-        )}
+          {project.data.description && <p class="description">{project.data.description}</p>}
+          {showMetadata && (project.data.tags || project.data.techStack) && (
+            <div class="metadata">
+              {project.data.tags && project.data.tags.length > 0 && (
+                <div class="tags">
+                  {project.data.tags.map((tag) => (
+                    <span class="tag">{tag}</span>
+                  ))}
+                </div>
+              )}
+              {project.data.techStack && project.data.techStack.length > 0 && (
+                <div class="tech-stack">
+                  <span class="tech-stack-label">Tech:</span>
+                  {project.data.techStack.map((tech) => (
+                    <span class="tech-item">{tech}</span>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+        </div>
       </li>
     ))
   }
@@ -39,32 +105,54 @@ type Project = CollectionEntry<'projects'>
     gap: 1rem;
   }
 
-  a {
-    color: var(--text-primary);
-    display: block;
-    text-decoration: none;
-    transition: opacity 0.15s ease-out;
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    ul:hover a {
-      opacity: 0.4;
-    }
-
-    ul:hover a:hover {
-      opacity: 1;
-    }
-  }
-
   .project-item {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
   }
 
+  .title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
   .title {
     margin: 0;
     font-weight: 500;
+    flex: 1;
+  }
+
+  .links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
+
+  .link-icon {
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition:
+      color 0.15s ease-out,
+      opacity 0.15s ease-out;
+    opacity: 0.6;
+  }
+
+  .link-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .link-icon:hover {
+      color: var(--text-primary);
+      opacity: 1;
+    }
   }
 
   .description {
@@ -72,6 +160,55 @@ type Project = CollectionEntry<'projects'>
     color: var(--text-secondary);
     font-size: 0.9rem;
     line-height: 1.5;
+  }
+
+  .metadata {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 0.125rem 0.5rem;
+    background-color: var(--astro-code-background);
+    border: 1px solid var(--code-bg);
+    border-radius: 12px;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    font-family: var(--mono);
+  }
+
+  .tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.8rem;
+  }
+
+  .tech-stack-label {
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-right: 0.125rem;
+  }
+
+  .tech-item {
+    display: inline-block;
+    padding: 0.125rem 0.5rem;
+    background-color: var(--astro-code-background);
+    border: 1px solid var(--code-bg);
+    border-radius: 12px;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    font-family: var(--mono);
   }
 
   .placeholder {

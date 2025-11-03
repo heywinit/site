@@ -24,6 +24,7 @@ export interface PostListProps {
 // ProjectList component props interface
 export interface ProjectListProps {
   projects: CollectionEntry<'projects'>[]
+  showMetadata?: boolean
 }
 
 // WorkList component props interface

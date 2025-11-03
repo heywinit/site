@@ -63,15 +63,18 @@ const { posts } = Astro.props as PostListProps
     }
 
     ul:hover a:hover .divider {
-      background-color: var(--text-tertiary);
-      opacity: 0.75;
+      background-color: var(--accent);
+      opacity: 0.6;
     }
     ul:hover a:hover .dotted-divider {
-      color: var(--text-secondary);
+      color: var(--primary);
     }
     ul:hover a:hover .date {
-      color: var(--text-secondary);
+      color: var(--primary);
       opacity: 1;
+    }
+    ul:hover a:hover .title {
+      color: var(--primary);
     }
   }
 

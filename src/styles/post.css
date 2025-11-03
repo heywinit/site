@@ -50,12 +50,14 @@
   color: var(--primary);
   text-decoration: underline;
   text-decoration-color: var(--text-tertiary);
-  transition: text-decoration-color 0.2s ease-out;
+  transition:
+    color 0.2s ease-out,
+    text-decoration-color 0.2s ease-out;
 }
 
 .prose a:hover {
-  color: var(--primary);
-  text-decoration-color: var(--text-primary);
+  color: var(--accent-hover);
+  text-decoration-color: var(--accent);
 }
 
 /* Paragraphs */
@@ -187,7 +189,7 @@
 
 /* Blockquotes */
 .prose blockquote {
-  border-left: 2px solid var(--border);
+  border-left: 2px solid var(--accent);
   margin: 0 0 1.75em 0.125em;
   padding: 0 0 0 1.375em;
   text-align: left;
@@ -239,7 +241,7 @@
   top: -0.05em;
   width: 1.5rem;
   text-align: center;
-  color: var(--text-tertiary);
+  color: var(--accent);
 }
 
 /* Ordered lists */
@@ -269,8 +271,8 @@
   left: -1.15rem;
   width: 1.5rem;
   text-align: left;
-  color: var(--text-secondary);
-  opacity: 0.75;
+  color: var(--primary);
+  opacity: 0.8;
   font-variant-numeric: tabular-nums;
   font-feature-settings:
     'tnum' 1,
@@ -310,7 +312,7 @@
   top: 0.175em;
   width: 1em;
   height: 1em;
-  border: 1.35px solid var(--text-tertiary);
+  border: 1.35px solid var(--accent);
   border-radius: 4px;
   background: transparent;
   appearance: none;
@@ -319,9 +321,9 @@
 
 .prose ul.contains-task-list li.task-list-item input[type='checkbox']:checked {
   position: relative;
-  background: var(--code-bg);
+  background: var(--accent);
   font-family: var(--sans);
-  border: 1.35px solid var(--text-tertiary);
+  border: 1.35px solid var(--accent);
   opacity: 0.75;
 }
 
@@ -410,7 +412,7 @@
   left: 0;
   width: 4rem;
   height: 1px;
-  background-color: var(--border);
+  background-color: var(--accent);
 }
 
 .prose cite {
@@ -450,7 +452,7 @@
 
 .prose [data-footnote-ref]:hover,
 .prose [data-footnote-backref]:hover {
-  color: var(--text-primary);
+  color: var(--primary);
 }
 
 /* Code blocks */

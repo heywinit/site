@@ -1,7 +1,6 @@
 ---
 title: 'Ganthiya Labs'
-description: 'Dev tools and consumer apps built with friends'
+description: 'Building dev tools and consumer apps'
 url: 'https://ganthiyalabs.xyz'
 tags: ['devtools', 'web']
 ---
-

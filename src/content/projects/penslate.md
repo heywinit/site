@@ -1,8 +1,8 @@
 ---
 title: 'Penslate'
 description: 'A minimal local first collaborative text editor'
-url: 'https://github.com/heywinit/penslate'
-github: 'https://github.com/heywinit/penslate'
+url: 'https://penslate.xyz'
+github: 'https://github.com/ganthiyalabs/penslate'
 tags: ['editor', 'collaborative', 'local-first']
 featured: true
 order: 1
