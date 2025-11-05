@@ -8,7 +8,7 @@ I started working professionally at 16, building Minecraft mods for fun. At 17, 
 
 Currently, I'm a developer at [soldecoder.app](https://soldecoder.app), working on fintech solutions including Meteora liquidity management automation that's generated hundreds of thousands of dollars in profit for our users, and trading automation tools for perpetual DEXes with similar impact. I also co-founded [ganthiyalabs.xyz](https://ganthiyalabs.xyz) with my friends, where we build dev tools and consumer apps.
 
-I was into fintech for a while, but now I'm looking towards working on critical cloud infrastructure.
+I was into fintech for a while, but now I'm pivoting towards dev tools, cloud infra, and a lot of backend engineering.
 
 Outside of tech, I'm deeply invested in:
 

@@ -187,15 +187,17 @@ type Project = CollectionEntry<'projects'>
     display: flex;
     flex-wrap: wrap;
     gap: 0.375rem;
+    justify-content: flex-end;
+    margin-left: auto;
   }
 
   .tag {
     display: inline-block;
-    padding: 0.125rem 0.5rem;
+    padding: 0.125rem 0.375rem;
     background-color: var(--astro-code-background);
     border: 1px solid var(--code-bg);
     border-radius: 12px;
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     color: var(--text-secondary);
     font-family: var(--mono);
   }
