@@ -29,4 +29,4 @@ I now see that the zeal for competence is less about chasing perfection and more
 > Oh, this the part, he breaks my humility just for practice  
 > Tactics we learned together, sore losers forever, daddy issues
 
-But I'm still ardent. I'm not changing at all. I'm gonna go back to my workout as I finish writing this. A sore looser forever.
+But I'm still ardent. I'm not changing at all. I'm gonna go back to my workout as I finish writing this. A sore loser forever.
